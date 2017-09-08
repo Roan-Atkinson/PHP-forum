@@ -1,9 +1,9 @@
-## PHP-forum
----
+# PHP-forum
+
 ###### by Roan Atkinson
 
 <br>
-PHP-forum is a simple, lighweight forum system written in PHP. This was made as part of a 48 hour competition, so it is not particularily secure, nor verbose.
+PHP-forum is a simple, lighweight forum system written in PHP. This was made as part of a 48 hour competition, so it is not particularily secure, nor verbose.<br>
 
 Features include:
 - login system
