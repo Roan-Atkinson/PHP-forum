@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="">
+   <head>
+       <meta charset="utf-8">
+       <title>The Cave - New Post</title>
+       <link rel="icon" href="../../icon.png">
+       <link rel="stylesheet" href="../../css/main.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script src="../../js/md5.js"></script>
+       <script src="../../js/main.js"></script>
+       <script>
+         $(document).ready(function() {
+            var url = window.location.href;
+            if (url.slice(-1) == "/") {
+               window.location = url.slice(0, -1);
+            }
+            if (localStorage.isLoggedIn == "false" || CryptoJS.MD5(localStorage.username) != localStorage.session) {
+               alert("This content is restricted to users.\nLog in or create an accout to view it.");
+               goHome();
+            }
+            document.getElementById("postUsername").setAttribute("value", localStorage.username);
+         });
+
+         function anonWarning() {
+            var warning = document.getElementById("anonCheckWaring");
+            var anon = document.getElementById("anonCheckbox");
+            if (anon.checked) {
+               warning.innerHTML = "*anonymous posts cannot be deleted<br>and can only be removed my the admin";
+            } else {
+               warning.innerHTML = "";
+            }
+         }
+       </script>
+   </head>
+    <body>
+
+      <div id="header">
+         <table onclick="goHome()" class="pointer">
+            <tr>
+               <td width="50"><img src="../../icon-white.png" height="50" width="50" id="headerImg"></td>
+               <td id="headerText">The Cave</td>
+            </tr>
+         </table>
+      </div>
+      <div id="backToPostDiv">
+         <button id="backToPostsButton" class="pointer" onclick="gotoPosts()">Back to Posts</button>
+      </div>
+      <div id="indicatorDiv">
+         Logged in: <div id="indicator">&nbsp;</div>
+      </div>
+      <div id="postButtonsDiv">
+         <button class="newPostButton pointer" onclick="gotoNewPost()">New Post</button>
+         <br>
+         <button class="newPostButton pointer" onclick="gotoDelPosts()">Delete Post</button>
+      </div>
+
+      <div class="content">
+         <h2>New Post</h2>
+         <br>
+         <form action="new/post.php" method="post">
+            <input type="hidden" name="username" id="postUsername">
+            <input placeholder="title" name="title" type="text" class="postTitleField" autocomplete = "off" autofocus>
+            <select name="catagory">
+               <option value="general">general</option>
+               <option value="hacking">hacking</option>
+               <option value="scripting">scripting</option>
+               <option value="ethics">ethics</option>
+               <option value="social engineering">social engineering</option>
+               <option value="wireless">wireless</option>
+               <option value="bluetooth">bluetooth</option>
+               <option value="mitm">mitm</option>
+               <option value="networking">networking</option>
+               <option value="xss">xss</option>
+               <option value="sqli">sqli</option>
+               <option value="arduino">arduino</option>
+            </select>
+            <br>
+            <textarea placeholder="lorum ipsum..." name="content" id="postContent"></textarea>
+            <br>
+            <input type="submit" value="post" class="postButton" name="submit">
+            <input type="checkbox" name="anonymous" value="anonymous" id="anonCheckbox" onchange="anonWarning()">anonymous
+         </form>
+         <p id="anonCheckWaring"></p>
+      </div>
+
+   </body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>The Cave - Home</title>
+        <link rel="icon" href="icon.png">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/md5.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+
+      <div id="header">
+         <table onclick="goHome()" class="pointer">
+            <tr>
+               <td width="50"><img src="icon-white.png" height="50" width="50" id="headerImg"></td>
+               <td id="headerText">The Cave</td>
+            </tr>
+         </table>
+      </div>
+      <div id="indicatorDiv">
+         Logged in: <div id="indicator">&nbsp;</div>
+      </div>
+
+      <div id="intro">
+         Welcome to The Cave. An exclusive community of black hat hackers.
+         <br>
+         To log in or register an account, click the login button below.
+         <br>
+         If you want to read / write posts then click posts the button below.
+         <br>
+         At any time, to return to this page, click the logo in the top left of the page.
+         <br><br>
+         <button class="button" onclick="gotoLogin()">Login</button>
+         <span style="display:inline-block; width: 20px;"></span>
+         <button class="button" onclick="gotoPosts()">Posts</button>
+      </div>
+
+   </body>
+</html>

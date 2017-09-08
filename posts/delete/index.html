@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="">
+   <head>
+       <meta charset="utf-8">
+       <title>The Cave - Delete Post</title>
+       <link rel="icon" href="../../icon.png">
+       <link rel="stylesheet" href="../../css/main.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script src="../../js/md5.js"></script>
+       <script src="../../js/main.js"></script>
+       <script>
+         $(document).ready(function() {
+            var url = window.location.href;
+            if (url.slice(-1) == "/") {
+               window.location = url.slice(0, -1);
+            }
+            if (localStorage.isLoggedIn == "false" || CryptoJS.MD5(localStorage.username) != localStorage.session) {
+               alert("This content is restricted to users.\nLog in or create an accout to view it.");
+               goHome();
+            }
+            document.getElementById("postUsername").setAttribute("value", localStorage.username);
+         });
+       </script>
+   </head>
+    <body>
+
+      <div id="header">
+         <table onclick="goHome()" class="pointer">
+            <tr>
+               <td width="50"><img src="../../icon-white.png" height="50" width="50" id="headerImg"></td>
+               <td id="headerText">The Cave</td>
+            </tr>
+         </table>
+      </div>
+      <div id="backToPostDiv">
+         <button id="backToPostsButton" class="pointer" onclick="gotoPosts()">Back to Posts</button>
+      </div>
+      <div id="indicatorDiv">
+         Logged in: <div id="indicator">&nbsp;</div>
+      </div>
+      <div id="postButtonsDiv">
+         <button class="newPostButton pointer" onclick="gotoNewPost()">New Post</button>
+         <br>
+         <button class="newPostButton pointer" onclick="gotoDelPosts()">Delete Post</button>
+      </div>
+
+      <div class="content">
+         <h2>Delete Post</h2>
+         <br>
+         <form action="delete/del.php" method="post">
+            <input type="hidden" name="username" id="postUsername">
+            <input placeholder="post ID" name="postID" type="text" maxlength="10" class="delPostIdField" autocomplete = "off" autofocus>
+            <br>
+            <span id="deletePostDisclaimer">
+               *you must be signed in as the<br>author of the post to delete it.<br>
+               this means you cannnot delete<br>anonymous posts.
+            </span><br><br>
+            <input type="submit" value="delete" class="postButton" name="submit">
+         </form>
+      </div>
+
+   </body>
+</html>
