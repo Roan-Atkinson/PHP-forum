@@ -11,7 +11,7 @@ Features include:
 - make new posts
 - delete posts
 - comments on posts
-- anoonymous comments and posts
+- anonymous comments and posts
 
 known security issues include:
 - **severe** XSS vulnerability
