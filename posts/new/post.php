@@ -11,11 +11,11 @@
       $postCONTENT = $_POST["content"];
       date_default_timezone_set("UTC");
       $postDATE = date("d/m/Y");
-      $randnum = "1111111111";
+      $randnum = "111111111";
       $existingIDs = file_get_contents("../IDs.list");
       $repeating = true;
       while ($repeating) {
-         $randnum = (string)mt_rand(1111111112,9999999999);
+         $randnum = (string)mt_rand(111111112,999999999);
          if (strpos($existingIDs, $randnum) === false) {
             $repeating = false;
          }
@@ -33,7 +33,7 @@
       array_push($posts_data,$postJSON);
       $postIndex = (string)count($posts_data)-1;
       file_put_contents("../posts.json", json_encode($posts_data));
-      exec("cd ../ && mkdir $postID && cd $postID && touch comments.data && cp ../1111111111/index.php . && cp ../1111111111/comment.php .");
+      exec("cd ../ && mkdir $postID && cd $postID && touch comments.data && cp ../111111111/index.php . && cp ../111111111/comment.php .");
       exec("cd ../ && echo \"$postID,\" >> IDs.list");
 
       $indexPHPasArr = file("../$postID/index.php");

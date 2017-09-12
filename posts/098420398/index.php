@@ -15,7 +15,7 @@ $postCONTENTprev = substr(htmlentities(preg_replace('#\<(.*?)\>#', ' ', $postCON
 <html lang="">
    <head>
        <meta charset="utf-8">
-       <title>The Cave - <?php echo $postID; ?></title>
+       <title>The Forum - <?php echo $postID; ?></title>
        <link rel="icon" href="../../icon.png">
        <link rel="stylesheet" href="../../css/main.css">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -43,7 +43,7 @@ $postCONTENTprev = substr(htmlentities(preg_replace('#\<(.*?)\>#', ' ', $postCON
          <table onclick="goHome()" class="pointer">
             <tr>
                <td width="50"><img src="../../icon-white.png" height="50" width="50" id="headerImg"></td>
-               <td id="headerText">The Cave</td>
+               <td id="headerText">The Forum</td>
             </tr>
          </table>
       </div>
