@@ -21,49 +21,33 @@ function updateCategoryColors() {
             tag.style.backgroundColor = "#3ab54a";
             tag.style.color = "black";
             break;
-         case "hacking":
-            tag.style.backgroundColor = "black";
-            tag.style.color = "#00ff00";
-            break;
-         case "scripting":
+         case "python":
             tag.style.backgroundColor = "#0080ff";
             tag.style.color = "#e6e600";
             break;
-         case "ethics":
-            tag.style.backgroundColor = "#ffff00";
-            tag.style.color = "black";
-            break;
-         case "social engineering":
-            tag.style.backgroundColor = "#c5b358";
-            tag.style.color = "black";
-            break;
-         case "wireless":
-            tag.style.backgroundColor = "white";
-            tag.style.color = "#0099ff";
-            break;
-         case "bluetooth":
-            tag.style.backgroundColor = "black";
-            tag.style.color = "#0099ff";
-            break;
-         case "mitm":
-            tag.style.backgroundColor = "#cc0000"
-            tag.style.color = "white";
-            break;
-         case "networking":
-            tag.style.backgroundColor = "#982e59";
-            tag.style.color = "#cccccc";
-            break;
-         case "xss":
-            tag.style.backgroundColor = "#ff8000";
-            tag.style.color = "black";
-            break;
-         case "sqli":
+         case "sql":
             tag.style.backgroundColor = "black";
             tag.style.color = "#cc33ff";
             break;
-         case "arduino":
-            tag.style.backgroundColor = "#007399";
+         case "javascript":
+            tag.style.backgroundColor = "#ebce14";
             tag.style.color = "black";
+            break;
+         case "php":
+            tag.style.backgroundColor = "#5c62a3";
+            tag.style.color = "black";
+            break;
+         case "swift":
+            tag.style.backgroundColor = "#fc5835";
+            tag.style.color = "black";
+            break;
+         case "c++":
+            tag.style.backgroundColor = "white";
+            tag.style.color = "#004482";
+            break;
+         case "bash":
+            tag.style.backgroundColor = "black";
+            tag.style.color = "#00ff00";
             break;
       }
    }
