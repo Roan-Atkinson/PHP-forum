@@ -9,20 +9,20 @@
        <script src="../js/md5.js"></script>
        <script src="../js/main.js"></script>
        <script>
+         var url = window.location.href.substring(0,window.location.href.length - document.location.search.length);
+         if (url.slice(-1) != "/") {
+            window.location.href = url+"/"+document.location.search;
+         }
          $(document).ready(function() {
             logout();
             var indicator = document.getElementById("indicator").style.backgroundColor = "#ff0000";
-            var url = window.location.href;
-            if (url.slice(-1) == "/") {
-               window.location = url.slice(0, -1);
-            }
          });
        </script>
    </head>
     <body>
 
       <div id="header">
-         <table onclick="goHome()" class="pointer">
+         <table onclick="window.location='../'" class="pointer">
             <tr>
                <td width="50"><img src="../icon-white.png" height="50" width="50" id="headerImg"></td>
                <td id="headerText">The Forum</td>
@@ -36,7 +36,7 @@
       <div class="content">
          <h2>Login</h2>
          <br>
-         <form action="login/login.php" method="post">
+         <form action="login.php" method="post">
             <input placeholder="username" name="username" type="text" class="loginField" autocomplete = "off" autofocus>
             <br>
             <input placeholder="password" name="password" type="password" autocomplete = "off" class="loginField">
@@ -46,7 +46,7 @@
          <br><hr width="500" color="black" size="1">
          <br>
          <h2>Register</h2>
-         <button class="loginButton" onclick="gotoRegister()">Register</button>
+         <button class="loginButton" onclick="window.location='register/'">Register</button>
       </div>
 
    </body>

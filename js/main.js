@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    if (localStorage.isLoggedIn != "true") {
-       localStorage.isLoggedIn = "false";
-    } else if (CryptoJS.MD5(localStorage.username) != localStorage.session) {
+   if (localStorage.isLoggedIn != "true") {
+      localStorage.isLoggedIn = "false";
+   } else if (CryptoJS.MD5(localStorage.username) != localStorage.session) {
       localStorage.isLoggedIn = "false";
       localStorage.session = undefined;
       localStorage.username = undefined;
@@ -15,34 +15,6 @@ $(document).ready(function() {
       indicator.style.backgroundColor = "#ff0000";
    }
 });
-
-function goHome() {
-   window.location.href = '/';
-}
-
-function gotoPosts() {
-   if (localStorage.isLoggedIn == "false" || CryptoJS.MD5(localStorage.username) != localStorage.session) {
-      alert("This content is restricted to users.\nLog in or create an accout to view it.");
-   } else {
-      window.location.href = '/posts';
-   }
-}
-
-function gotoNewPost() {
-   window.location.href = '/posts/new';
-}
-
-function gotoDelPosts() {
-   window.location.href = '/posts/delete';
-}
-
-function gotoLogin() {
-   window.location.href = '/login';
-}
-
-function gotoRegister() {
-   window.location.href = '/login/register';
-}
 
 function logout() {
    localStorage.isLoggedIn = "false";

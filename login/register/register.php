@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
    echo "
    <script>
       alert(\"Account successfully created.\");
-      window.location.href = '/login';
+      window.location.href = '../';
    </script>
    ";
    exit();

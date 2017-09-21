@@ -35,7 +35,7 @@ function login($user, $session) {
    localStorage.isLoggedIn = \"true\"
    localStorage.session = \"$session\"
    localStorage.username = \"$user\"
-   window.location.href = '/posts';
+   window.location = \"../posts/\"
    </script>
    ";
    exit();

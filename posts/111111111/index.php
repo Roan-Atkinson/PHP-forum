@@ -23,24 +23,19 @@ $postCONTENTprev = substr(htmlentities(preg_replace('#\<(.*?)\>#', ' ', $postCON
        <script src="../../js/main.js"></script>
        <script src="../../js/posts.js"></script>
        <script>
+         var url = window.location.href.substring(0,window.location.href.length - document.location.search.length);
+         if (url.slice(-1) != "/") {
+            window.location.href = url+"/"+document.location.search;
+         }
          $(document).ready(function() {
             document.getElementById("commentUsername").setAttribute("value", localStorage.username);
          });
        </script>
-       <?php
-         echo "
-            <script>
-               $(document).ready(function() {
-                  document.getElementById(\"commentForm\").setAttribute(\"action\", \"$postID/comment.php\");
-               });
-            </script>
-         ";
-       ?>
    </head>
     <body>
 
       <div id="header">
-         <table onclick="goHome()" class="pointer">
+         <table onclick="window.location='../../'" class="pointer">
             <tr>
                <td width="50"><img src="../../icon-white.png" height="50" width="50" id="headerImg"></td>
                <td id="headerText">The Forum</td>
@@ -48,15 +43,15 @@ $postCONTENTprev = substr(htmlentities(preg_replace('#\<(.*?)\>#', ' ', $postCON
          </table>
       </div>
       <div id="backToPostDiv">
-         <button id="backToPostsButton" class="pointer" onclick="gotoPosts()">Back to Posts</button>
+         <button id="backToPostsButton" class="pointer" onclick="window.location='../'">Back to Posts</button>
       </div>
       <div id="indicatorDiv">
          Logged in: <div id="indicator">&nbsp;</div>
       </div>
       <div id="postButtonsDiv">
-         <button class="newPostButton pointer" onclick="gotoNewPost()">New Post</button>
+         <button class="newPostButton pointer" onclick="window.location='../new'">New Post</button>
          <br>
-         <button class="newPostButton pointer" onclick="gotoDelPosts()">Delete Post</button>
+         <button class="newPostButton pointer" onclick="window.location='../delete'">Delete Post</button>
       </div>
 
       <div class="content">
@@ -70,7 +65,7 @@ $postCONTENTprev = substr(htmlentities(preg_replace('#\<(.*?)\>#', ' ', $postCON
                <?php echo $postCONTENT; ?>
             </div>
             <hr width="800" color="black" size="1">
-            <form method="post" id="commentForm">
+            <form action="comment.php" method="post" id="commentForm">
                <input placeholder="comment" name="comment" type="text" class="commentField" autocomplete = "off" autofocus>
                <input type="submit" value="comment" class="commentButton" name="submit">
                <input type="checkbox" name="anonymous" value="anonymous">anonymous

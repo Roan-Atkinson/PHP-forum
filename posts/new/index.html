@@ -9,14 +9,14 @@
        <script src="../../js/md5.js"></script>
        <script src="../../js/main.js"></script>
        <script>
+         var url = window.location.href.substring(0,window.location.href.length - document.location.search.length);
+         if (url.slice(-1) != "/") {
+            window.location.href = url+"/"+document.location.search;
+         }
          $(document).ready(function() {
-            var url = window.location.href;
-            if (url.slice(-1) == "/") {
-               window.location = url.slice(0, -1);
-            }
             if (localStorage.isLoggedIn == "false" || CryptoJS.MD5(localStorage.username) != localStorage.session) {
                alert("This content is restricted to users.\nLog in or create an accout to view it.");
-               goHome();
+               window.location='../../';
             }
             document.getElementById("postUsername").setAttribute("value", localStorage.username);
          });
@@ -35,7 +35,7 @@
     <body>
 
       <div id="header">
-         <table onclick="goHome()" class="pointer">
+         <table onclick="window.location='../../'" class="pointer">
             <tr>
                <td width="50"><img src="../../icon-white.png" height="50" width="50" id="headerImg"></td>
                <td id="headerText">The Forum</td>
@@ -43,21 +43,21 @@
          </table>
       </div>
       <div id="backToPostDiv">
-         <button id="backToPostsButton" class="pointer" onclick="gotoPosts()">Back to Posts</button>
+         <button id="backToPostsButton" class="pointer" onclick="window.location='../'">Back to Posts</button>
       </div>
       <div id="indicatorDiv">
          Logged in: <div id="indicator">&nbsp;</div>
       </div>
       <div id="postButtonsDiv">
-         <button class="newPostButton pointer" onclick="gotoNewPost()">New Post</button>
+         <button class="newPostButton pointer" onclick="window.location='./'">New Post</button>
          <br>
-         <button class="newPostButton pointer" onclick="gotoDelPosts()">Delete Post</button>
+         <button class="newPostButton pointer" onclick="window.location='../delete/'">Delete Post</button>
       </div>
 
       <div class="content">
          <h2>New Post</h2>
          <br>
-         <form action="new/post.php" method="post">
+         <form action="post.php" method="post">
             <input type="hidden" name="username" id="postUsername">
             <input placeholder="title" name="title" type="text" class="postTitleField" autocomplete = "off" autofocus>
             <select name="catagory">

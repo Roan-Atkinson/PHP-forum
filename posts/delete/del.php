@@ -44,7 +44,7 @@
       echo "
          <script>
             alert(\"Post successfully deleted.\");
-            window.location.href = \"/posts\";
+            window.location.href = \"../\";
          </script>
       ";
       exit();

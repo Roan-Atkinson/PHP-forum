@@ -43,7 +43,7 @@
 
       $commentPHPasArr = file("../$postID/comment.php");
       $commentPHPasStr = file_get_contents("../$postID/comment.php");
-      $newcontent = str_replace($commentPHPasArr[10], "      header(\"Location: ../$postID\");\n", $commentPHPasStr);
+      $newcontent = str_replace($commentPHPasArr[10], "      header(\"Location: ../$postID/\");\n", $commentPHPasStr);
       file_put_contents("../$postID/comment.php", $newcontent);
       header("Location: ../");
       exit();

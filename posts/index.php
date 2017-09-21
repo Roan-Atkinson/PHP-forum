@@ -9,11 +9,17 @@
        <script src="../js/md5.js"></script>
        <script src="../js/main.js"></script>
        <script src="../js/posts.js"></script>
+       <script>
+          var url = window.location.href.substring(0,window.location.href.length - document.location.search.length);
+          if (url.slice(-1) != "/") {
+             window.location.href = url+"/"+document.location.search;
+          }
+       </script>
    </head>
     <body>
 
       <div id="header">
-         <table onclick="goHome()" class="pointer">
+         <table onclick="window.location='../'" class="pointer">
             <tr>
                <td width="50"><img src="../icon-white.png" height="50" width="50" id="headerImg"></td>
                <td id="headerText">The Forum</td>
@@ -24,9 +30,9 @@
          Logged in: <div id="indicator">&nbsp;</div>
       </div>
       <div id="postButtonsDiv">
-         <button class="newPostButton pointer" onclick="gotoNewPost()">New Post</button>
+         <button class="newPostButton pointer" onclick="window.location='new/'">New Post</button>
          <br>
-         <button class="newPostButton pointer" onclick="gotoDelPosts()">Delete Post</button>
+         <button class="newPostButton pointer" onclick="window.location='delete/'">Delete Post</button>
       </div>
 
       <div class="content">
@@ -49,7 +55,7 @@ for ($i=0; $i < count($posts_data); $i++) {
    $postID = $posts_data[$i]->id;
    $postCONTENT = $posts_data[$i]->content;
    $postCONTENTprev = substr(htmlentities(preg_replace('#\<(.*?)\>#', ' ', $postCONTENT)), 0, 70) . "...";
-   echo "<div class=\"postListTtem\" onclick=\"window.location.href='posts/$postID'\">\n";
+   echo "<div class=\"postListTtem\" onclick=\"window.location.href='$postID/'\">\n";
    echo "<span class=\"postName\">$postNAME</span>\n<br>\n$postCONTENTprev\n</span><br>\n";
    echo "<span class=\"postInfo\">$postAUTHOR - $postDATE<br>&gt;&gt;&gt;$postID <span class=\"postCategory\">$postCATEGORY</span></span>\n";
    echo "<hr width=\"700\" color=\"black\" size=\"1\">\n</div>";

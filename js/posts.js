@@ -4,10 +4,6 @@ $(document).ready(function() {
       window.location.href = '../';
    }
    updateCategoryColors();
-   var url = window.location.href;
-   if (url.slice(-1) == "/") {
-      window.location = url.slice(0, -1);
-   }
 });
 
 function updateCategoryColors() {

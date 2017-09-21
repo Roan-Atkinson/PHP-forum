@@ -6,8 +6,4 @@ $(document).ready(function() {
       alert("ERROR: already logged in.\nYou are being logged out as a precautionary measure.");
       goHome();
    }
-   var url = window.location.href;
-   if (url.slice(-1) == "/") {
-      window.location = url.slice(0, -1);
-   }
 });
