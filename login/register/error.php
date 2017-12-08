@@ -35,10 +35,7 @@
                 case "2":
                   error.innerHTML = "Username is too long (more than 15 chars)";
                   break;
-               case "3":
-                  error.innerHTML = "Incorrect hex code";
-                  break;
-               case "4":
+                case "3":
                   error.innerHTML = "Passwords do not match";
                   break;
                 default:

@@ -36,8 +36,6 @@
          <form action="register.php" method="post">
             <input placeholder="username" name="username" type="text" class="loginField" autocomplete = "off" autofocus>
             <br>
-            <input placeholder="hex code" name="hexcode" type="text" class="loginField" autocomplete = "off">
-            <br>
             <input placeholder="password" name="password1" type="password" class="loginField" autocomplete = "off">
             <br>
             <input placeholder="confirm" name="password2" type="password" class="loginField" autocomplete = "off">

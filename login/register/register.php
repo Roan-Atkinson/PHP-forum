@@ -2,7 +2,6 @@
 
 if (isset($_POST["submit"])) {
    $user = $_POST["username"];
-   $hexcode = $_POST["hexcode"];
    $pass1 = $_POST["password1"];
    $pass2 = $_POST["password2"];
    $encrKey = "Bdx0GpewDAkVQB7b5A5dyZwwT5l61VR6MKqsnRuq2MMeUTTzBY";
@@ -16,13 +15,8 @@ if (isset($_POST["submit"])) {
       header("Location: error.html?error=2");
       exit();
    }
-   $hexcodeIsValid = exec("cat hexcodes.data | grep -w \"$hexcode\"");
-   if ($hexcodeIsValid == "" || $hexcode == "") {
-      header("Location: error.html?error=3");
-      exit();
-   }
    if ($pass1 != $pass2) {
-      header("Location: error.html?error=4");
+      header("Location: error.html?error=3");
       exit();
    }
    $pass = md5($pass1);
