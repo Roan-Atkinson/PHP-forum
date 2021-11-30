@@ -8,7 +8,7 @@
          $username = "Anonymous";
       }
       exec("echo \"<span class='commentUser'>$username</span><br><span class='comment'>$comment</span><br><br>\" >> comments.data");
-      header("Location: ../098420398/");
+      header("Location: ../214068824/");
       exit();
    }
 
